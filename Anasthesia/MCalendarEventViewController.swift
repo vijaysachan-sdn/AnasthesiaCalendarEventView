@@ -4,7 +4,6 @@
 //
 //  Created by Vijay Sachan on 05/12/23.
 //
-
 import UIKit
 import CalendarKit
 class MCalendarEventViewController: DayViewController {
@@ -28,7 +27,9 @@ class MCalendarEventViewController: DayViewController {
     var arr:[MEvent]!
     
     override func viewDidLoad(){
+//        arr=MCalendarEventViewController.testEvents()
         super.viewDidLoad()
+        
         dayView.dayHeaderView.isHidden=true
         dayView.backgroundColor = .white
         dayView.timelinePagerView.autoScrollToFirstEvent=true
@@ -61,25 +62,17 @@ class MCalendarEventViewController: DayViewController {
          
         return events
     }
-    private func testEvents()->[Event]{
-        var events = [Event]()
+    static func testEvents()->[MEvent]{
+        var events = [MEvent]()
         let format="HH:mm"
-        let event = Event()
-        event.color = .gray
         // Specify DateInterval
         let start = Date(timeIntervalSinceNow: -60*60*2)
         let end=Date.now
         let text1="model.title"+" "+"model.location"+" "+start.getFormattedDate(format: format) + " - " + end.getFormattedDate(format: format)
-        let text2="Location mfdksfjhsd"
+        let text2="Location aaaaa bbbb"
         let imgName="location_on-location_on_symbol"
         let textColor = UIColor.black
-        event.dateInterval = DateInterval(start: start, end: end)
-        // Add info: event title, subtitle, location to the array of Strings
-        // create an NSMutableAttributedString that we'll append everything to
-        event.text=text1
-        event.text2=text2
-        event.textColor=textColor
-        event.imageName=imgName
+        let event=MEvent(startDate: start, endDate: end, text1: text1, text2: text2, textColor: .red, textFont: UIFont.systemFont(ofSize: 15), bgColor: .blue, imgNameForIcon: imgName)
         events.append(event)
         return events
     }
