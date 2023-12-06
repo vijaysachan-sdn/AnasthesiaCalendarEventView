@@ -1,0 +1,6 @@
+framework module Pods_Anasthesia_AnasthesiaUITests {
+  umbrella header "Pods-Anasthesia-AnasthesiaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
